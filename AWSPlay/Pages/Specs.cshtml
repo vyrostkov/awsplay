@@ -1,0 +1,13 @@
+﻿@page
+@model AWSPlay.Pages.SpecsModel
+@{
+}
+
+<div class="text-center">
+    @{
+        foreach (var spec in Model.Specs)
+        {
+                <p>@spec.Id: @spec.Value</p>
+        }
+    }
+</div>
