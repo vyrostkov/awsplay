@@ -10,7 +10,7 @@ terraform {
 }
 
 provider "aws" {
-  region  = "${var.aws_region}"
+  region = var.aws_region
 }
 
 # Providing a reference to our default VPC
@@ -172,8 +172,8 @@ resource "aws_ecs_service" "awsplay_service" {
 }
 
 resource "aws_security_group" "awsplay_fargate_security_group" {
- name = "awsplay_fargate_security_group"
- ingress {
+  name = "awsplay_fargate_security_group"
+  ingress {
     from_port = 0
     to_port   = 0
     protocol  = "-1"
