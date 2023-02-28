@@ -5,9 +5,15 @@
 
 <div class="text-center">
     @{
-        foreach (var spec in Model.Specs)
+        if (Model.Specs != null)
         {
-                <p>@spec.Id: @spec.Value</p>
+            foreach (var spec in Model.Specs)
+            {
+                <p>@spec.Value</p>
+            }
         }
     }
 </div>
+<form method="post">
+    Add spec: <input type="text" name="NewSpec" value="" /><input type="submit" value="OK" />
+</form>

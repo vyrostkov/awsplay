@@ -9,6 +9,9 @@ namespace AWSPlay.Pages
         private readonly IDynamoDBContext _context;
 
         public List<Spec>? Specs { get; set; }
+
+        [BindProperty]
+        public string? NewSpec { get; set; }
         
         public SpecsModel(IDynamoDBContext context)
         {
@@ -19,6 +22,17 @@ namespace AWSPlay.Pages
         {
             Specs = await _context.ScanAsync<Spec>(new ScanCondition[] { }).GetNextSetAsync();
         }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (!ModelState.IsValid || NewSpec == null)
+            {
+                return Page();
+            }
+
+            await _context.SaveAsync(new Spec { Id = Guid.NewGuid().ToString(), Value = NewSpec, Timestamp = DateTime.UtcNow.ToString("yyyyMMddHHmmss") });
+            return RedirectToPage();
+        }
     }
 
     [DynamoDBTable("awsplay")]
@@ -28,5 +42,7 @@ namespace AWSPlay.Pages
         public string? Id { get; set; }
         [DynamoDBProperty("value")]
         public string? Value { get; set; }
+        [DynamoDBProperty("timestamp")]
+        public string? Timestamp { get; set; }
     }
 }
