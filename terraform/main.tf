@@ -6,6 +6,12 @@ terraform {
     }
   }
 
+  backend "s3" {
+    bucket = "vyrostkov-terraform"
+    key    = "awsplay/terraform.tfstate"
+    region = "eu-west-2"
+  }
+
   required_version = ">= 1.2.0"
 }
 
