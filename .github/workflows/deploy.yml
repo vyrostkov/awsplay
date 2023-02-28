@@ -50,6 +50,8 @@ jobs:
     name: Terraform
     runs-on: ubuntu-latest
     needs: docker-image
+    permissions:
+      issues: write
     env:
       TF_VAR_image: "${{ vars.AWS_ECR_REPOSITORY }}:${{ github.sha }}"
     defaults:
