@@ -29,12 +29,7 @@
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
       "publishAllPorts": true,
-      "useSSL": true,
-      "environmentVariables": {
-        "AWS_REGION": "eu-west-2",
-        "AWS_ACCESS_KEY_ID": "AKIAUFUHDR2YWTNHQNEN",
-        "AWS_SECRET_ACCESS_KEY": "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"
-      }
+      "useSSL": true
     }
   }
 }
