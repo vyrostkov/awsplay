@@ -23,6 +23,9 @@ jobs:
   terraform:
     name: Terraform
     runs-on: ubuntu-latest
+    needs: docker-image
+    env:
+      TF_VAR_image: ${{needs.docker-image.outputs.image}}
     defaults:
       run:
         shell: bash

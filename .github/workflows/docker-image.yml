@@ -11,8 +11,8 @@ env:
   ECR_REPOSITORY: awsplay
 
 jobs:
-  deploy:
-    name: Deploy
+  docker-image:
+    name: Push Docker Image
     runs-on: ubuntu-latest
 
     outputs:

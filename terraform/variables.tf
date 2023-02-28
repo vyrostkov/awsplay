@@ -3,14 +3,9 @@ variable "aws_region" {
   default = "eu-west-1"
 }
 
-variable "repository_uri" {
+variable "image" {
   type    = string
-  default = "286972415665.dkr.ecr.eu-west-2.amazonaws.com/awsplay"
-}
-
-variable "image_tag" {
-  type    = string
-  default = "3850595d86ad778b95a8cfbc908aeba217461670"
+  default = "286972415665.dkr.ecr.eu-west-2.amazonaws.com/awsplay:3850595d86ad778b95a8cfbc908aeba217461670"
 }
 
 variable "route53_zone" {

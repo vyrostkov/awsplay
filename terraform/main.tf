@@ -40,14 +40,13 @@ resource "aws_ecs_cluster" "awsplay" {
   name = "awsplay"
 }
 
-/*
 resource "aws_ecs_task_definition" "awsplay" {
   family                   = "awsplay"
   container_definitions    = <<DEFINITION
   [
     {
       "name": "awsplay",
-      "image": "${var.repository_uri}:${var.image_tag}",
+      "image": "${var.image}",
       "essential": true,
       "portMappings": [
         {
@@ -217,4 +216,3 @@ resource "aws_dynamodb_table" "awsplay" {
     type = "S"
   }
 }
-*/
