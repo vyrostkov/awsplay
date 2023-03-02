@@ -108,12 +108,12 @@ jobs:
               body: output
             })
 
-      - name: tfsec
-        if: github.event_name == 'pull_request'
-        uses: aquasecurity/tfsec-pr-commenter-action@v1.2.0
-        with:
-          github_token: ${{ github.token }}
-          working_directory: ''
+#      - name: tfsec
+#        if: github.event_name == 'pull_request'
+#        uses: aquasecurity/tfsec-pr-commenter-action@v1.2.0
+#        with:
+#          github_token: ${{ github.token }}
+#          working_directory: ''
 
       - name: Terraform Plan Status
         if: steps.plan.outcome == 'failure'
