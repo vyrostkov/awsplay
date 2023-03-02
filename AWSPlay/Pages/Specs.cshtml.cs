@@ -30,7 +30,6 @@ namespace AWSPlay.Pages
                 return Page();
             }
 
-            var password = "ft67Jng89Kv";
             await _context.SaveAsync(new Spec { Id = Guid.NewGuid().ToString(), Value = NewSpec, Timestamp = DateTime.UtcNow.ToString("yyyyMMddHHmmss") });
             return RedirectToPage();
         }

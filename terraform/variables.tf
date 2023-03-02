@@ -23,3 +23,8 @@ variable "acm_cert_arn" {
   default = "arn:aws:acm:eu-west-1:286972415665:certificate/ee4e9dc1-e2e3-490f-8968-a51164a22bbe"
 }
 
+variable "secret" {
+  type    = string
+  default = "75kdfghuer=vCVdere_edlg34"
+}
+
