@@ -214,3 +214,15 @@ resource "aws_dynamodb_table" "awsplay" {
     type = "S"
   }
 }
+
+resource "aws_alb" "awsplay_lb2" {
+  name               = "awsplay-lb2"
+  load_balancer_type = "application"
+  subnets = [ # Referencing the default subnets
+    "${aws_default_subnet.default_subnet_a.id}",
+    "${aws_default_subnet.default_subnet_b.id}",
+    "${aws_default_subnet.default_subnet_c.id}"
+  ]
+  # Referencing the security group
+  security_groups = ["${aws_security_group.awsplay_lb_security_group.id}"]
+}
