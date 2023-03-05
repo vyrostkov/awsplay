@@ -43,18 +43,18 @@ jobs:
         docker build --file AWSPlay/Dockerfile -t $AWS_ECR_REPOSITORY:$IMAGE_TAG .
         docker push $AWS_ECR_REPOSITORY:$IMAGE_TAG
 
-      - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: '$AWS_ECR_REPOSITORY:$IMAGE_TAG'
-          format: 'sarif'
-          output: 'trivy-results.sarif'
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        image-ref: '$AWS_ECR_REPOSITORY:$IMAGE_TAG'
+        format: 'sarif'
+        output: 'trivy-results.sarif'
 
-      - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v2
-        if: always()
-        with:
-          sarif_file: 'trivy-results.sarif'
+    - name: Upload Trivy scan results to GitHub Security tab
+      uses: github/codeql-action/upload-sarif@v2
+      if: always()
+      with:
+        sarif_file: 'trivy-results.sarif'
 
   terraform:
     name: Terraform
